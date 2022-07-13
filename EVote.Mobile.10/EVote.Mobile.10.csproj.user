@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Utilities\Dialogs\AlertDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\Charts\DailyActivity\DailyActivityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\Charts\ElectionActivity\ElectionActivityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\MainHeader\MainHeaderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\StatusBar\StatusBarView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\DateSearch\DaySearch\DateSearchDayView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\DateSearch\Display\DateSearchDisplayView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\DateSearch\MonthSearch\DateSearchMonthView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\DateSearch\YearSearch\DateSearchYearView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\MessagePanel\MessagePanelView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\NameSearch\VoterNameSearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\NoVotersFound\NoVotersFoundView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\ScanSearch\VoterScanSearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\SearchingPanel\VoterSearchingPanelView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utilities\Views\VoterSearch\SearchPanel\VoterSearchPanelView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Activity\BasicRowExample.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Activity\VotingActivityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Login\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Main\MainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\ChangeDistrict\ChangeDistrictView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\EditVoterSearch\EditVoterSearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\EditVoter\EditVoterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\ElectionSettings\ElectionSettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\SystemSettings\SystemSettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\UserSettings\UserSettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Manage\ValidLocations\ValidLocationsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Roster\Search\RosterSearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Roster\Signature\RosterSignatureView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Voter\Ballot\BallotPrintView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Voter\Search\VoterSearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Voter\Signature\SignatureCaptureView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Voter\Signature\SignatureResultsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Voter\Spoiled\SpoiledBallotView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\EVote.Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Dialogs\YesNoDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Dialogs\AlertDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\Charts\DailyActivity\DailyActivityView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\Charts\ElectionActivity\ElectionActivityView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\MainHeader\MainHeaderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\StatusBar\StatusBarView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\DateSearch\DaySearch\DateSearchDayView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\DateSearch\Display\DateSearchDisplayView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\DateSearch\MonthSearch\DateSearchMonthView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\DateSearch\YearSearch\DateSearchYearView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\MessagePanel\MessagePanelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\NameSearch\VoterNameSearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\NoVotersFound\NoVotersFoundView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\ScanSearch\VoterScanSearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\SearchingPanel\VoterSearchingPanelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\Views\VoterSearch\SearchPanel\VoterSearchPanelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Activity\BasicRowExample.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Activity\VotingActivityView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Login\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\ChangeDistrict\ChangeDistrictView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\EditVoterSearch\EditVoterSearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\EditVoter\EditVoterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\ElectionSettings\ElectionSettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\SystemSettings\SystemSettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\UserSettings\UserSettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Manage\ValidLocations\ValidLocationsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Roster\Search\RosterSearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Roster\Signature\RosterSignatureView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Voter\Ballot\BallotPrintView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Voter\Search\VoterSearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Voter\Signature\SignatureCaptureView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Voter\Signature\SignatureResultsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Voter\Spoiled\SpoiledBallotView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

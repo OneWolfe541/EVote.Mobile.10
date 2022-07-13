@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="EVote.Views.SignatureCaptureView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*" />
+            <RowDefinition Height="3.5*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Name="SaveButton" Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Click="SaveButton_Click">
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Save Signature" />
+                    </Viewbox>
+                </Button>
+                
+                <Button Grid.Column="1" Name="CancelButton" Style="{DynamicResource ModernButtonStyleNoStretchRed}" Background="Red" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Click="CancelButton_Click">
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Cancel" />
+                    </Viewbox>
+                </Button>
+
+                <Button Grid.Column="2" Name="ClearButton" Style="{DynamicResource ModernButtonStyleNoStretchRed}" Background="Red" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Click="ClearButton_Click">
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Clear" />
+                    </Viewbox>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" HorizontalAlignment="Left" >
+                    <TextBlock Text="Voter Sign in Page for:" FontWeight="Bold" />
+                </Viewbox>
+            </Grid>
+
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,1" Height="1" Margin="0,3,0,2" />
+
+            <Grid Grid.Row="2" Grid.Column="0" >
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" HorizontalAlignment="Left" >
+                    <TextBlock Text="{Binding Path=Voter.FullName}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2" >
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" HorizontalAlignment="Left" >
+                    <TextBlock Text="{Binding Path=DateOfBirth}" />
+                </Viewbox>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Border Background="LightGray" BorderBrush="Transparent" BorderThickness="0" Width="978" Height="303" Margin="3">
+                <Canvas Name="paintSurface" MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" Width="975" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Canvas.Background>
+                        <SolidColorBrush Color="White" Opacity="1"/>
+                    </Canvas.Background>
+                </Canvas>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

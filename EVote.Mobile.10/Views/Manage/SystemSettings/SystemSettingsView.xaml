@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="EVote.Views.SystemSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:FontSizeConverter x:Key="fontSizeCon" />
+        <conv:FontSizeFullConverter x:Key="fontSizeFullCon" />
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="0.75*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Election Database" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" >
+                <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Settings.APIDB, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Signature Folder" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >
+                <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Settings.SignatureFolder, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Signature Type" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" >
+                <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Settings.SignatureType, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Print Ballots" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="1">
+                <CheckBox Name="PrintBallotsCheckBox" IsChecked="{Binding Path=Settings.PrintBallots, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Ballot Printer" Margin="5,1,5,1" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,5" >
+                <ComboBox Name="BallotPrinters"
+                          DisplayMemberPath="PrinterName" 
+                          SelectedValuePath="PrinterName"
+                          FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                          HorizontalAlignment="Stretch"
+                          Style="{DynamicResource ComboBoxFlatStyle}"
+                          ToolTip="Select a printer"
+                          ItemsSource="{Binding Printers}"
+                          SelectedItem="{Binding SelectedBallotPrinter}"
+                          IsSynchronizedWithCurrentItem="True" />
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Ballot Size" Margin="5,1,5,1" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" >
+                <ComboBox Name="BallotSize"
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Index"
+                          FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                          HorizontalAlignment="Stretch"
+                          Style="{DynamicResource ComboBoxFlatStyle}"
+                          ToolTip="Select a printer"
+                          ItemsSource="{Binding PaperSizes}"
+                          SelectedItem="{Binding SelectedPaperSize}"
+                          IsSynchronizedWithCurrentItem="True" />
+            </Grid>
+
+            <Grid Grid.Row="6" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Ballot Bin" Margin="5,1,5,1" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="6" Grid.Column="1" Margin="0,0,0,5" >
+                <ComboBox Name="BallotBins"
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Index"
+                          FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                          HorizontalAlignment="Stretch"
+                          Style="{DynamicResource ComboBoxFlatStyle}"
+                          ToolTip="Select a printer"
+                          ItemsSource="{Binding PaperTrays}"
+                          SelectedItem="{Binding SelectedPaperTray}"
+                          IsSynchronizedWithCurrentItem="True" />
+            </Grid>            
+
+            <Grid Grid.Row="7" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Offline Mode" Margin="5,1,5,1" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="7" Grid.Column="1">
+                <CheckBox Name="OfflineCheckBox" IsChecked="{Binding Path=Offline, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Button Grid.Row="10" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,10,0"
+                        Command="{Binding Path=SaveCommand}">
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                    <TextBlock Text="Save" />
+                </Viewbox>
+            </Button>
+
+            <Button Grid.Row="10" Grid.Column="2" Style="{DynamicResource ModernButtonStyleNoStretch}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,10,0"
+                        Command="{Binding Path=UploadCommand}">
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                    <TextBlock Text="Upload Offline Records" />
+                </Viewbox>
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>

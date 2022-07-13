@@ -1,0 +1,363 @@
+﻿<UserControl x:Class="EVote.Views.EditVoterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:EVote.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:FontSizeConverter x:Key="fontSizeCon" />
+        <conv:FontSizeFullConverter x:Key="fontSizeFullCon" />
+        <conv:BooleanToVisibilityConverter x:Key="convVis" />
+        <conv:InvertBooleanToVisibilityConverter x:Key="convInvVis" />
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="0.75*" />
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Name="SearchScrollViewer" 
+                      ScrollViewer.CanContentScroll="True"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      Height="1000">
+            <ScrollViewer.Resources>
+                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">50</sys:Double>
+            </ScrollViewer.Resources>
+            <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,20,0" >
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="56"/>
+
+                    <RowDefinition Height="20"/>
+
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+
+                    <RowDefinition Height="0.5*"/>
+
+                    <RowDefinition Height="56"/>
+
+                    <RowDefinition Height="0.5*"/>
+
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+
+                    <RowDefinition Height="0.5*"/>
+
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="56"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Voter Details" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1,1,1,1" Height="1" Margin="0,3,0,2" />
+
+                <!-- ROW 1 - ROLL NUMBER -->
+                <Grid Grid.Row="2" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Roll Number" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="1" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.VoterID, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" 
+                         Visibility="{Binding Path=IsEditVoter, Converter={StaticResource convInvVis}, FallbackValue=Collapse}" />
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding Path=Voter.VoterID}" Margin="5,1,1,2" 
+                               Foreground="{DynamicResource ApplicationItemForegroundBrush}"
+                               Visibility="{Binding Path=IsEditVoter, Converter={StaticResource convVis}, FallbackValue=Collapse}"/>
+                    </Viewbox>
+                </Grid>
+
+                <!-- ROW 2 - FIRSTNAME MIDDLENAME -->
+                <Grid Grid.Row="3" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="First Name" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.FirstName, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="3" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Middle Name" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2">
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.MiddleName, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <!-- ROW 3 - LASTNAME GENERATION -->
+                <Grid Grid.Row="4" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Last Name" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.LastName, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Grid Grid.Row="4" Grid.Column="3" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Generation" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2">
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.Generation, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1,1,1,1" Height="1" Margin="0,3,0,2" />
+
+                <!-- ROW 4 - BIRTHDATE DISTRICT -->
+                <Grid Grid.Row="6" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Date Of Birth" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.DOBSearch, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Grid Grid.Row="6" Grid.Column="3" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="District" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Margin="0,0,0,5" >
+                    <ComboBox Name="Districts"
+                          DisplayMemberPath="JurisdictionName" 
+                          SelectedValuePath="JurisdictionId"
+                          FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                          HorizontalAlignment="Stretch"
+                          Style="{DynamicResource ComboBoxFlatStyle}"
+                          ToolTip="Select a district"
+                          ItemsSource="{Binding JurisdictionList}"
+                          SelectedItem="{Binding SelectedJurisdictionItem}"
+                          IsSynchronizedWithCurrentItem="True" >
+                        <ComboBox.Resources>
+                            <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">20</sys:Double>
+                        </ComboBox.Resources>
+                    </ComboBox>
+                </Grid>
+
+                <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1,1,1,1" Height="1" Margin="0,3,0,2" />
+
+                <!-- ROW 5 - ADDRESS1 ADDRESS2 -->
+                <Grid Grid.Row="8" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Address 1" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.PhysicalAddress1, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Grid Grid.Row="8" Grid.Column="3" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Address 2" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2">
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.PhysicalAddress2, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <!-- ROW 6 - CITY STATE -->
+                <Grid Grid.Row="9" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="City" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.PhysicalCity, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Grid Grid.Row="9" Grid.Column="3" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="State" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2">
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.PhysicalState, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <!-- ROW 7 - ZIP -->
+                <Grid Grid.Row="10" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Zip" Margin="5,1,5,1" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Voter.PhysicalZip, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+                </Grid>
+
+                <Border Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="6" BorderBrush="Black" BorderThickness="1,1,1,1" Height="1" Margin="0,3,0,2" />
+
+                <!-- ROW 8 - STATUS LOCATION -->
+                <Grid Grid.Row="12" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Voter Status" Margin="5,1,5,1" 
+                               Foreground="{DynamicResource ApplicationItemForegroundBrush}"
+                               Visibility="{Binding Path=IsEditVoter, Converter={StaticResource convVis}, FallbackValue=Collapse}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,5" >
+                    <ComboBox Name="Status"
+                          DisplayMemberPath="StatusDescription" 
+                          SelectedValuePath="StatusId"
+                          FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                          HorizontalAlignment="Stretch"
+                          Style="{DynamicResource ComboBoxFlatStyle}"
+                          ToolTip="Select a status"
+                          Visibility="{Binding Path=IsEditVoter, Converter={StaticResource convVis}, FallbackValue=Collapse}"
+                          ItemsSource="{Binding StatusesList}"
+                          SelectedItem="{Binding SelectedStatusesItem}"
+                          IsSynchronizedWithCurrentItem="True" />
+                </Grid>
+
+                <Grid Grid.Row="12" Grid.Column="3" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="Voted At" Margin="5,1,5,1" 
+                               Foreground="{DynamicResource ApplicationItemForegroundBrush}"
+                               Visibility="{Binding Path=IsEditVoter, Converter={StaticResource convVis}, FallbackValue=Collapse}" />
+                    </Viewbox>
+                </Grid>
+
+                <Grid Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="2" Margin="0,0,0,5" >
+                    <ComboBox Name="Location"
+                          DisplayMemberPath="LocationName" 
+                          SelectedValuePath="LocationId"
+                          FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                          HorizontalAlignment="Stretch"
+                          Style="{DynamicResource ComboBoxFlatStyle}"
+                          ToolTip="Select a status"
+                          Visibility="{Binding Path=IsEditVoter, Converter={StaticResource convVis}, FallbackValue=Collapse}"
+                          ItemsSource="{Binding LocationsList}"
+                          SelectedItem="{Binding SelectedLocationItem}"
+                          IsSynchronizedWithCurrentItem="True" />
+                </Grid>
+
+                <!-- ROW 9 - SAVE CANCEL -->
+                <Button Grid.Row="13" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,10,0"
+                        Command="{Binding Path=SaveCommand}">
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Save" />
+                    </Viewbox>
+                </Button>
+
+                <Button Grid.Row="13" Grid.Column="1" Style="{DynamicResource ModernButtonStyleNoStretchRed}" Background="Red" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,0,0"
+                        Command="{Binding Path=CancelCommand}">
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Cancel" />
+                    </Viewbox>
+                </Button>
+
+                <Grid Grid.Row="28" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                        <TextBlock Text="     " />
+                    </Viewbox>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

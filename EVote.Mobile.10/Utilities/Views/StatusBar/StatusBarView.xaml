@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="EVote.Utilities.Views.StatusBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Utilities.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:BooleanToVisibilityConverter x:Key="convVis" />
+        <conv:InvertBooleanToVisibilityConverter x:Key="convInvVis" />
+        <conv:IconColorConverter x:Key="convIcoColor" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="4" Height="{DynamicResource AppStatusBarHeight}" Fill="{DynamicResource ApplicationTertiaryBrush}" VerticalAlignment="Top" />
+
+        <!-- CURRENT STATUS -->
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Grid.Column="0" Stretch="Uniform" HorizontalAlignment="Left" Margin="5,0,0,3">
+                <TextBlock Text="{Binding TextLeft}" Foreground="{DynamicResource ApplicationForegroundBrush}" />
+            </Viewbox>
+
+            <fa5:SvgAwesome Grid.Column="1" Icon="Solid_Spinner" Spin="True" Foreground="{DynamicResource ApplicationForegroundBrush}" Margin="5" Visibility="{Binding Path=SpinnerLeft, Converter={StaticResource convVis}, FallbackValue=Collapsed}" />
+        </Grid>
+
+        <!-- STATUS ICONS -->
+        <Grid Grid.Column="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <fa5:SvgAwesome Grid.Column="1" Icon="Solid_Wifi" ToolTip="{Binding Path=WifiToolTip}" Foreground="{Binding WifiColor, Converter={StaticResource convIcoColor}}" Margin="5" Visibility="{Binding Path=WifiIcon, Converter={StaticResource convVis}, FallbackValue=Collapsed}" />
+
+            <fa5:SvgAwesome Grid.Column="2" Icon="Regular_EyeSlash" ToolTip="Offline" Foreground="{Binding OfflineColor, Converter={StaticResource convIcoColor}}" Margin="5" Visibility="{Binding Path=OfflineIcon, Converter={StaticResource convVis}, FallbackValue=Collapsed}" />
+        </Grid>
+
+        <!-- EMPTY SPACE -->
+        <Grid Grid.Column="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Grid.Column="0" Stretch="Uniform" HorizontalAlignment="Left" Margin="5,0,0,3">
+                <TextBlock Text="                    "/>
+            </Viewbox>
+            
+        </Grid>
+        
+    </Grid>
+</UserControl>

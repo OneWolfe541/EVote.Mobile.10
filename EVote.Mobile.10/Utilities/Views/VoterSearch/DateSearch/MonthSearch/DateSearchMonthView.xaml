@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="EVote.Utilities.Views.DateSearchMonthView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Utilities.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:HighlightButtonConverter x:Key="convHighlight" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Viewbox Stretch="Uniform">
+                <TextBlock Text="Select a month" Margin="2" Foreground="Black" HorizontalAlignment="Center" />
+            </Viewbox>
+        </Grid>
+
+        <Button Grid.Row="1" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="01">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="January" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="1" Grid.Column="1" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="02">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="February" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="1" Grid.Column="2" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="03">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="March" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="04">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="April" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="1" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="05">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="May" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="2" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="06">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="June" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="3" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="07">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="July" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="3" Grid.Column="1" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="08">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="August" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="3" Grid.Column="2" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="09">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="September" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="4" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="10">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="October" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="4" Grid.Column="1" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="11">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="November" />
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Row="4" Grid.Column="2" Style="{DynamicResource ModernButtonStyleNoStretchWhite}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="10"
+                        Command="{Binding Path=MonthCommand}" CommandParameter="12">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource convHighlight}">
+                    <Binding Path="Month"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="CommandParameter"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                <TextBlock Text="December" />
+            </Viewbox>
+        </Button>
+
+    </Grid>
+</UserControl>

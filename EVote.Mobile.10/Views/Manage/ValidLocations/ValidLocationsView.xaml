@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="EVote.Views.ValidLocationsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:FontSizeConverter x:Key="fontSizeCon" />
+        <conv:ListViewHalfSizeConverter x:Key="itemSizeCon" />
+        <conv:ListViewWidthConverter x:Key="itemWidthCon" />
+        <conv:BooleanToVisibilityConverter x:Key="convVis" />
+        <conv:InvertBooleanToVisibilityConverter x:Key="convInvVis" />
+        
+        <DataTemplate x:Key="UserDistrictTemplate" >
+            <Grid Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=ActualHeight, Converter={StaticResource itemSizeCon}}"
+                  Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource itemWidthCon}}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" >
+                    <ComboBox Name="Location"
+                              Margin="5,0,5,0"
+                              DisplayMemberPath="LocationName" 
+                              SelectedValuePath="LocationId"
+                              FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                              HorizontalAlignment="Stretch"
+                              Style="{DynamicResource ComboBoxFlatStyle}"
+                              ToolTip="Select a location"
+                              SelectedValue="{Binding LocationId, Mode=TwoWay}"
+                              ItemsSource="{Binding Path=DataContext.LocationsList, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                              SelectedItem="{Binding SelectedLocationItem}" />
+                </Grid>
+
+                <Grid Grid.Row="0" Grid.Column="1" >
+                    <ComboBox Name="Jurisdiction"
+                              Margin="5,0,5,0"
+                              DisplayMemberPath="JurisdictionName" 
+                              SelectedValuePath="JurisdictionId"
+                              FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                              HorizontalAlignment="Stretch"
+                              Style="{DynamicResource ComboBoxFlatStyle}"
+                              ToolTip="Select a location"
+                              SelectedValue="{Binding JurisdictionId, Mode=TwoWay}"
+                              ItemsSource="{Binding Path=DataContext.JurisdictionList, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                              SelectedItem="{Binding SelectedJurisdictionItem}" />
+                </Grid>
+
+                <Grid Grid.Row="0" Grid.Column="2" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Margin="5,0,5,0"
+                                Command="{Binding DataContext.AddCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" 
+                                CommandParameter="{Binding .}" 
+                                Visibility="{Binding Active, Converter={StaticResource convInvVis}, FallbackValue=Collapse}">
+                                <Viewbox Stretch="Uniform" Margin="5,0,5,0" >
+                                    <TextBlock Text="Add" />
+                                </Viewbox>
+                            </Button>
+                            <Button Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Margin="5,0,5,0"
+                                Command="{Binding DataContext.SaveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" 
+                                CommandParameter="{Binding .}" 
+                                Visibility="{Binding Active, Converter={StaticResource convVis}, FallbackValue=Collapse}">
+                                <Viewbox Stretch="Uniform" Margin="5,0,5,0" >
+                                    <TextBlock Text="Save" />
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Style="{DynamicResource ModernButtonStyleNoStretchRed}" Margin="5,0,5,0"
+                                Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" 
+                                CommandParameter="{Binding .}" 
+                                Visibility="{Binding Active, Converter={StaticResource convVis}, FallbackValue=Collapse}">
+                                <Viewbox Stretch="Uniform" Margin="5,0,5,0" >
+                                    <TextBlock Text="Remove" />
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="0.75*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                    <TextBlock Text="Site" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                    <TextBlock Text="District" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" >
+            <ListBox Grid.Row="1" 
+                     ItemsSource="{Binding UserDistrictList}"
+                     SelectedItem="{Binding SelectedVoter}"
+                     ItemTemplate="{StaticResource UserDistrictTemplate}"                     
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                     ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                     HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" 
+                     Background="Transparent" BorderBrush="Transparent" 
+                     Padding="15,0,15,0" Margin="1">
+            </ListBox>
+        </Grid>
+
+    </Grid>
+</UserControl>

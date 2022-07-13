@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="EVote.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:FontSizeConverter x:Key="fontSizeCon" />
+        <conv:FontSizeFullConverter x:Key="fontSizeFullCon" />
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,5">
+            <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                <TextBlock Text="Sign In" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+            </Viewbox>
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1,1,1,1" Height="1" Margin="0,3,0,2" />
+        
+        <Viewbox Grid.Row="2" Grid.Column="1" Margin="5,15,5,5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid>
+                <Border BorderBrush="Black" BorderThickness="2,2,2,2" />
+                <Image Source="C:\Program Files\EVote\Images\pollbook_signin.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" />
+            </Grid>
+        </Viewbox>
+
+        <Grid Grid.Row="2" Grid.Column="3" Margin="5,5,5,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Viewbox Grid.Row="1" Stretch="Uniform" HorizontalAlignment="Left">
+                <TextBlock Text="Enter your user name and password" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+            </Viewbox>
+
+            <Viewbox Grid.Row="3" Stretch="Uniform" HorizontalAlignment="Left">
+                <TextBlock Text="User Name" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+            </Viewbox>
+
+            <Grid Grid.Row="4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox Name="UserNameText" Grid.Column="0" Margin="0,0,0,5" Padding="0"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                         KeyDown="Text_KeyDown"/>
+            </Grid>
+
+            <Viewbox Grid.Row="6" Stretch="Uniform" HorizontalAlignment="Left">
+                <TextBlock Text="Password" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+            </Viewbox>
+
+            <Grid Grid.Row="7" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                
+                <PasswordBox Name="PasswordText" Grid.Column="0" Margin="0,0,0,5" Padding="0"
+                             PasswordChar="*"
+                             VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                             BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                             FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"
+                             KeyDown="Text_KeyDown"/>
+            </Grid>
+
+            <Grid Grid.Row="9" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="0.25*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Name="OkButton" Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,10,0"
+                        Click="OkButton_Click" >
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Ok" />
+                    </Viewbox>
+                </Button>
+
+                <Button Grid.Column="2" Name="CancelButton" Style="{DynamicResource ModernButtonStyleNoStretchRed}" Background="Red" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,0,0"
+                        Click="CancelButton_Click" >
+                    <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                        <TextBlock Text="Cancel" />
+                    </Viewbox>
+                </Button>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

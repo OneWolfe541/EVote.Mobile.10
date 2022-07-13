@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="EVote.Utilities.Views.VoterScanSearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Utilities.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:FontSizeHalfConverter x:Key="fontSizeCon" />
+    </UserControl.Resources>
+
+    <Grid>
+        <!-- DIVIDE ROWS BY 14 -->
+        <Grid.RowDefinitions>
+            <!-- CONTROLS ARE 1 OF 14 IN HEIGHT INSTEAD OF A SET HEIGHT -->
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="6.75*"/>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Margin="10,0,10,-10">
+            <Viewbox Stretch="Uniform">
+                <TextBlock Grid.Column="0" Text="Scan Application or Id" Margin="2" Foreground="{DynamicResource ApplicationPrimaryBrush}" FontWeight="Bold" HorizontalAlignment="Left" />
+            </Viewbox>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10,10,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="{DynamicResource ApplicationPrimaryBrush}">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Grid.Column="0" Text="Voter Id" Margin="2" Foreground="{DynamicResource ApplicationForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <TextBox Grid.Column="1" Margin="5,0,0,0"
+                             VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                             BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                             FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="10,10,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="{DynamicResource ApplicationPrimaryBrush}">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Grid.Column="0" Text="Last Scanned" Margin="2" Foreground="{DynamicResource ApplicationForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <TextBox Grid.Column="1" Margin="5,0,0,0"
+                             VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                             BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                             FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}"/>
+        </Grid>
+
+        <Button Grid.Row="7" Margin="10,5" Padding="10,5" Style="{DynamicResource ModernButtonStyleNoStretch}" Visibility="Visible" HorizontalContentAlignment="Center"
+                    Command="{Binding Path=NameSearchCommand}">
+            <Grid Margin="5,0,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0" Stretch="Uniform" Margin="-2" >
+                    <fa5:SvgAwesome Icon="Solid_User" Margin="0" HorizontalAlignment="Left" Foreground="{DynamicResource ApplicationForegroundBrush}" Visibility="Visible" />
+                </Viewbox>
+                <Viewbox Grid.Column="1" Stretch="Uniform" Margin="10,0,0,0" >
+                    <TextBlock Text="Name Search" />
+                </Viewbox>
+            </Grid>
+        </Button>
+    </Grid>
+</UserControl>

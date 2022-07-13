@@ -1,0 +1,239 @@
+﻿<UserControl x:Class="EVote.Views.ElectionSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EVote.Views"
+             xmlns:conv="clr-namespace:EVote.Utilities.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <conv:FontSizeConverter x:Key="fontSizeCon" />
+        <conv:FontSizeFullConverter x:Key="fontSizeFullCon" />
+        <conv:BooleanToVisibilityConverter x:Key="convVis" />
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="0.75*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="8*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Election Name" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" >
+                <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Settings.ElectionName, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+            </Grid>
+
+            <!--<Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Allow districts to be changed on site" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>-->
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Election Date" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Settings.ElectionDate, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+            </Grid>
+
+            <!--<Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="6" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Allow districts to be changed on site" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>-->
+
+            <Grid Grid.Row="2" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Ballot Number Required" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="1">
+                <CheckBox Name="BallotNumberCheckBox" IsChecked="{Binding Path=Settings.BallotNumOnSig, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Poll worker must enter a ballot number" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="District Only Voting" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="1">
+                <CheckBox Name="DistrictOnlyCheckBox" IsChecked="{Binding Path=DistrictOnlyVoting, Mode=TwoWay}" HorizontalAlignment="Left" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Specific districts can only vote at specific sites" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Set District at Sign-In" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="1">
+                <CheckBox Name="DistrictSignInCheckBox" IsChecked="{Binding Path=Settings.DistrictSignIn, Mode=TwoWay}" HorizontalAlignment="Left" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Allow districts to be changed on site" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>            
+
+            <Grid Grid.Row="5" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Show Districts" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="1">
+                <CheckBox Name="ShowDistrictCheckBox" IsChecked="{Binding Path=Settings.ShowDistrict, Mode=TwoWay}" HorizontalAlignment="Left" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="5" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Show the district names on the search page" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="6" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Election Day Activity" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="6" Grid.Column="1">
+                <CheckBox Name="ShowEDActivityCheckBox" IsChecked="{Binding Path=Settings.ShowEDActivity, Mode=TwoWay}" HorizontalAlignment="Left" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="6" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Enable election day charts" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="7" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Early Voting Activity" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="7" Grid.Column="1">
+                <CheckBox Name="ShowEVActivityCheckBox" IsChecked="{Binding Path=Settings.ShowEVActivity, Mode=TwoWay}" HorizontalAlignment="Left" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="7" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Enable early voting charts" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="8" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Spoil Ballots" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="8" Grid.Column="1">
+                <CheckBox Name="SpoilBallotsCheckBox" IsChecked="{Binding Path=Settings.SpoilBallots, Mode=TwoWay}" HorizontalAlignment="Left" Margin="6,1,0,0" Style="{DynamicResource CheckBoxStyleLarge}" />
+            </Grid>
+
+            <Grid Grid.Row="8" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Allow ballots to be spoiled" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="9" Grid.Column="0" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Adjust for Time Zones" Margin="5,1,1,2" FontWeight="Bold" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="9" Grid.Column="1" >
+                <TextBox Margin="0,0,0,5" Padding="0"
+                         Text="{Binding Path=Settings.TimeAdjust, Mode=TwoWay}"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                         BorderBrush="{DynamicResource ApplicationPrimaryBrush}" BorderThickness="1,1,2,2"
+                         FontSize="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={StaticResource fontSizeCon}}" />
+            </Grid>
+
+            <Grid Grid.Row="9" Grid.Column="2" Background="Transparent" Margin="5,0,0,5">
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                    <TextBlock Text="Set time zone positive=east negative=west" Margin="5,1,1,2" Foreground="{DynamicResource ApplicationItemForegroundBrush}" />
+                </Viewbox>
+            </Grid>
+
+            <Button Grid.Row="10" Grid.Column="0" Style="{DynamicResource ModernButtonStyleNoStretchGreen}" Visibility="Visible" HorizontalContentAlignment="Center" Margin="0,10,10,0"
+                        Command="{Binding Path=SaveCommand}">
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                    <TextBlock Text="Save" />
+                </Viewbox>
+            </Button>
+
+            <Button Grid.Row="10" Grid.Column="2" Style="{DynamicResource ModernButtonStyleNoStretchGreen}" HorizontalContentAlignment="Center" Margin="0,10,10,0"
+                    Visibility="{Binding Path=DistrictOnlyVoting, Converter={StaticResource convVis}, FallbackValue=Collapse}"
+                    Command="{Binding Path=LocationsCommand}">
+                <Viewbox Stretch="Uniform" Margin="0,0,0,0" >
+                    <TextBlock Text="User/Districts" />
+                </Viewbox>
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>
